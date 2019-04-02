@@ -54,7 +54,7 @@ public static void deleteLast(Vector list){
 在 Java 中 COW 的一个应用就是 ``CopyOnWriteArrayList`` 
 
 * CopyOnWriteArrayList 相对于 ArrayList 线程安全，底层通过复制数组的方式来实现
-* 在遍历使用时不会抛出 ConcurrentmodificationException 并且便利的时候就不用额外加锁
+* 在遍历使用时不会抛出 ConcurrentmodificationException 并且遍历的时候就不用额外加锁
 * 元素可以为 null
 
 
@@ -64,7 +64,6 @@ public static void deleteLast(Vector list){
 在 CopyOnWriteArrayList 中
 
 ```java
-@SuppressWarnings("unchecked")
 private E get(Object[] a, int index) {
     return (E) a[index];
 }
@@ -147,7 +146,7 @@ public E next() {
 }
 ```
 
-在返回数据的时候是 snapshot 这个数组中的数据就，这个数组是快照(snapshot)吗？
+在返回数据的时候是 snapshot 这个数组中的数据就是快照(snapshot)吗？
 
 ```java
 private COWIterator(Object[] elements, int initialCursor) {
