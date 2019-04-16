@@ -68,3 +68,7 @@ WeakReerence<Person> wr = new WeakReference<Person>(new Person());
 
 
 
+参考资料
+
+[](<https://zhuanlan.zhihu.com/p/45173425>)
+
