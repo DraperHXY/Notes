@@ -163,3 +163,11 @@ squash
 git tag -d dev # 删除 tag
 ```
 
+
+
+### 删除远程分支
+
+```bash
+git push origin --delete dev_draper
+```
+
