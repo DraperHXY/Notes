@@ -171,3 +171,7 @@ git tag -d dev # 删除 tag
 git push origin --delete dev_draper
 ```
 
+
+
+##[Git 的几种状态](<https://www.cnblogs.com/zhuxiaoxi/p/8532540.html>)
+
