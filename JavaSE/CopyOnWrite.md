@@ -13,13 +13,9 @@ COW 在不同的操作系统，或者框架中都会有相应的实现
 
 * 如果在 fork 之后，父子进程都还需要继续进行写操作，那么会产生大量的分页错误，这样就得不偿失
 
-
-
 # 回顾
 
-我们都知道 ArrayList 是用于替代 Vector，Vector 是线程安全的容器。因为它几乎在每个方法声明处都加了 synchronized 关键字来保证容器安全。
-
-
+我们都知道 Vector 是用于替代 ArrayList，Vector 是线程安全的容器。因为它几乎在每个方法声明处都加了 synchronized 关键字来保证容器安全。
 
 如果使用 ``Collections.synchronizedList(new ArrayList())`` 来使 ArrayList 变成线程安全的话，也就是每个方法都加上 synchronized 关键字，只不过不是在方法的声明处，而是在方法的内部
 
