@@ -2,7 +2,7 @@
 
 这两者都是属于分布式里面的基本理论，比较容易理解
 
-## CAP
+## 一、CAP
 
 CAP (Consistency、Availability、Partition tolerance) 三者中只能达到两项
 
@@ -20,7 +20,7 @@ CAP (Consistency、Availability、Partition tolerance) 三者中只能达到两�
 
 
 
-### CAP 的权衡
+### 1. CAP 的权衡
 
 在 CAP 中如果注定要舍去一项，有两种选择
 
@@ -31,7 +31,7 @@ CAP (Consistency、Availability、Partition tolerance) 三者中只能达到两�
 
 
 
-### 舍去可用性
+### 2. 舍去可用性
 
 在发生网络故障和信息丢失等情况，就要牺牲用户体验，等待所有数据保持一致了之后再让用户访问系统。
 
@@ -39,7 +39,7 @@ CAP (Consistency、Availability、Partition tolerance) 三者中只能达到两�
 
 
 
-### 舍去一致性
+### 3. 舍去一致性
 
 提高可用性并允许分区，就要放弃一致性。例如在淘宝订单和 12306.都在一致性方面牺牲，会影响一些用户体验，但是不至于造成用户堵塞。
 
@@ -51,30 +51,66 @@ CAP (Consistency、Availability、Partition tolerance) 三者中只能达到两�
 
 
 
-## BASE
+## 二、BASE
 
 BASE 是指分布式系统无法做到强一致性，即 CAP 的强一致性，但应该采用合适的方法达到最终一致性。
 
 BASE 指的是 (Basically Available、Soft State、Eventual Consistency)基本可用、软状态、最终一致性。
 
-###Basically Available
+###1. Basically Available
 
 在出现故障时，允许损失部分可用性，保证核心可用
 
 >  比如说服务降级
 
 
-### Soft State
+### 2. Soft State
 
 允许系统存在中间状态，而中间状态不会影响系统整体可用性。分布式存储中一般一份数据至少会有三个副本，允许不同节点间副本同步的延时就是软状态的体现。mysql replication 的异步复制也是一种体现。
 
 
 
-## Eventual Consistency
+### 3. Eventual Consistency
 
-系统副本经过一定时间后，最终能够达到一致的状态
+系统副本经过一定时间后，最终能够达到一致的状态。**强调的是最终一致，而不是实时一致**
 
 
+
+## 三、最终一致性的变种
+
+### 1. 因果一致性
+
+
+
+### 2. 读已知所写
+
+
+
+### 3. 会话一致性
+
+
+
+### 4. 单调读一致性
+
+
+
+### 5. 单调写一致性
+
+
+
+## 四、总结
+
+CAP 理论 和 BASE 思想，作为分布式的基本理论，在 CAP 所说的局限性下，产生了**柔性事务**的基本理论 ——BASE。
+
+在强一致性的情况下，一个节点的崩溃和容易导致整个分布式不可用，崩溃后回滚几乎是必然的
+
+而弱一致性允许你的不一致，但是提高了可用性
+
+但在此之前有必要看一下[分布式下的强一致性问题](./分布式下的一致性问题.md)说的是什么东西？
+
+
+
+参考资料：
 
 [分布式系统的CAP理论](https://www.hollischuang.com/archives/666)
 

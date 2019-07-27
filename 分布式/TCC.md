@@ -10,5 +10,6 @@ try-confirm-cancel
 
 还有一种是异步方式，使用的是 MQ，在使用 MQ 的时候要保证 MQ100% 的可用性，除非采用其他的降级措施。
 
+[分布式服务接口的幂等性如何设计](https://www.cnblogs.com/mengchunchen/p/10077366.html)
 [终于有人把“TCC分布式事务”实现原理讲明白了！](<https://mp.weixin.qq.com/s/9A6ZnpBmAbQYC7kLr1iZCQ>)
 
