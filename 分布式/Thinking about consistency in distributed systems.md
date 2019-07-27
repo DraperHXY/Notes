@@ -9,9 +9,9 @@
 我的学习大概有以下几个阶段
 
 1. [什么是传统的事务管理](./什么是传统的事务管理.md)
-2. [CAP 和 BASE 理论](./CAP 和 BASE 理论.md)
+2. [CAP 和 BASE 理论](./CAP和BASE 理论.md)
 3. [分布式下的一致性问题](./分布式下的一致性问题.md)
-4. [2PC 和 3PC](./2PC 和 3PC.md)
+4. [2PC 和 3PC](./2PC和3PC.md)
 5. [刚性事务和柔性事务]()
 6. [TCC](./TCC.md)
 7. [Paxos]()
@@ -49,5 +49,31 @@
 7. 柔性事务
 
    * 异步确保
+
+
+
+强一致性算法
+
+- 主从同步
+  - 会导致一个节点宕机，导致整个集群不可用
+- 多数派
+  - 在并发情况下，无法保证系统正确性
+
+
+
+
+
+Paxos
+
+- Basic Paxos
+  - 活锁
+- Multi Paxos
+- Fast Paxos
+
+问题：
+
+难实现，效率低(2轮RPC)、活锁
+
+
 
 [左耳朵耗子推荐：分布式系统架构经典资料](<https://www.infoq.cn/article/2018/05/distributed-system-architecture>)
