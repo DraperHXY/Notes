@@ -87,10 +87,10 @@ public ThreadPoolExecutor(int corePoolSize,
 
 ### 拒绝任务策略：
 
-- 直接抛出异常
-- 使用调用者的线程来处理
-- 直接丢掉这个任务
-- 丢掉最老的任务
+- ``AbortPolicy``                 直接抛出异常
+- ``CallerRunsPolicy``       使用调用者的线程来处理
+- ``DiscardPolicy``             直接丢掉这个任务
+- ``DiscardOldestPolicy`` 丢掉最老的任务
 
 
 
@@ -102,6 +102,16 @@ public ThreadPoolExecutor(int corePoolSize,
 
 
 线程池就有点儿像一个生产者消费者模式
+
+
+
+### 线程池的状态
+
+1. RUNNING new ThreadPoolExecutor 就是 RUNNING 状态
+2. SHUTDOWN 不接受新的，已有继续的执行
+3. STOP 立即中断，全部停止
+4. TIDYING  全都已经停止了
+5. TERMINATED 钩子函数
 
 
 
@@ -117,3 +127,15 @@ public ThreadPoolExecutor(int corePoolSize,
 2. 对于长操作小心使用线程。可能会导致其他的线程永远等待，甚至造成资源泄漏。
 3. 线程池最终应该被显式关闭，否则程序在线程执行完成后可能永远不会执行 ``shutdown()`` 。
 4. 有效的使用线程池，对于类型差异非常大的任务，应该使用不同的线程池来处理不同的类型。(异构任务分别处理)
+
+
+
+### 线程池为什么会造成线程泄漏呢
+
+**ThreadPoolExcutor -> Worker -> Thread**
+
+在 ThreadPoolExcutor 中有个 final Worker woker = this.thread;
+
+而这个 worker.newThread 来执行我们的 任务。
+
+**Thread 属于 GC Root**， thread.getTask() 是个阻塞方法，当出现问题时，则该线程则一直阻塞，GC Root 又决定无法被回收，局部线程池 ThreadPoolExecutor 没有释放，从而导致线程越用越少，最后
