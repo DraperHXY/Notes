@@ -243,11 +243,13 @@ public class Run {
 
 ## 三、多个 Condition 实现生产者消费者
 
-待续
+在 [github](https://github.com/DraperHXY/ThreadExample/tree/master/ConditionABC/src/main/java/com/draper) ab 包下，就是一个生产者消费者
 
 
 
 ## 四、Condition 常用 方法
+
+在 wait-notify 实现生产者消费者的时候，notifyAll 是唤醒所有线程，然后再去争抢锁。仔细想一想是没有必要的，能不能唤醒指定线程。而 Condition 就可以实现这种效果。
 
 ```java
 getHoldCount() //用来查询当前线程保持锁定的个数，也就是调用 lock 的个数
