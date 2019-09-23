@@ -73,7 +73,7 @@ public class DubboNamespaceHandler extends NamespaceHandlerSupport {
 
 ## 四、parse
 
-在具体 parse 的时候，会有以下的几个方法
+在具体 parse 的时候，会有以下的几个方法，分别解析不同的内容
 
 * ``parseProperties``
 * ``parseNested``
@@ -85,4 +85,5 @@ public class DubboNamespaceHandler extends NamespaceHandlerSupport {
 
 ## 五、总结
 
-**具体的解析其实并不重要，重要的是整个流程下来，运用到了设计模式的模板模式以及OOP思想。**
+**重要的是整个流程下来，主要运用到了设计模式的模板模式以及OOP思想，把读取配置，封装成 BeanDefinition，供 IoC 调取**
+
