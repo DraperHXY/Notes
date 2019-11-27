@@ -6,6 +6,8 @@ explain 翻译就是解释的意思，在 MySQL 中被称作执行计划。
 
 
 
+
+
 ## 一、type
 
 type 表示 MySQL 访问数据的方式，常见的有以下几种
@@ -41,7 +43,12 @@ system > const > eq_ref > ref > range > index > all
 
 表示一些额外信息，通常会显示是否使用了索引，是否需要排序，是否用到临时表等。
 
+```
+Using where; Using index; Using filesort; Using temporary
+```
+
 
 
 看一条 SQL 的性能，主要看**回表**、**使用索引**、**索引覆盖**
 
+[这句简单的sql，如何加索引？颠覆了我多年的认知](https://juejin.im/post/5d6881d4f265da03ab426341)
