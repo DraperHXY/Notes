@@ -1,5 +1,24 @@
 # FAQ
 
+## redis 启动与关闭
+### 1. 启动
+``redis-server /usr/local/redis/redis.conf &``
+
+### 2. 进入客户端
+``redis-cli``
+
+### 3. 登录密码
+``auth 123456``
+
+### 4. 关闭 redis
+``shutdown``
+
+### 5. 测试
+``ping``
+
+### 6. 查看已经使用内存
+config get maxmemory
+
 ## 为什么要用 Redis
 
 因为常见的关系型数据库 MySQL 并不能适应所有的场景，例如秒杀库存的扣减，或者APP首页流量的高峰，很容易把数据库打崩

@@ -10,6 +10,12 @@
 * 方法区(线程共享)
 * 堆(线程共享)
 
+boolean a = true;
+
+Boolean b = true;
+
+Boolean c = new Boolean(true);
+
 详细请看 [JVM内存区域](JVM内存区域.md)
 
 

@@ -1,0 +1,1 @@
+npx eslint path/to/your/file

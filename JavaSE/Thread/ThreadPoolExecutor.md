@@ -139,3 +139,6 @@ public ThreadPoolExecutor(int corePoolSize,
 而这个 worker.newThread 来执行我们的 任务。
 
 **Thread 属于 GC Root**， thread.getTask() 是个阻塞方法，当出现问题时，则该线程则一直阻塞，GC Root 又决定无法被回收，局部线程池 ThreadPoolExecutor 没有释放，从而导致线程越用越少，最后
+
+# 线程池创建线程数目
+在 N 核 CPU 的情况下，如果是 CPU 密集型可以是 N+1 个线程，如果是 IO 密集型，可以是 2N 个线程
